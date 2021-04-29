@@ -1,0 +1,47 @@
+<html>
+    <head>
+<style>
+    body{
+        background: black;
+    }
+    div{
+        font-size: 60px;
+        color: cyan;
+        text-align: center;
+        font-family: cursive;
+    }
+</style>
+    </head>
+    <body>
+        <div id="time"></div>
+        <div id="date"></div>
+        <script>
+            
+         function clock()
+         {
+        var time = new Date() ;
+
+        var hour = time.getHours() ;
+        var min = time.getMinutes() ;
+        var sec = time.getSeconds() ;
+        var meridian = "AM" ;
+        var today = time.getDate() ;
+        var month = time.getMonth() + 1 ;
+        var year = time.getFullYear() ;
+
+           if( sec<10 ) { sec = "0" + sec ;}
+           if( min<10 ) { min = "0" + min ;}
+           if( hour<10 ) { hour = "0" + hour ;}
+           if( today<10 ) { today = "0" + today ;}
+           if( month<10 ) { month = "0" + month ;}
+           if( hour>12 ) {hour = hour - 12 ; meridian = "PM"}
+        var x = hour + " : " +  min + " : " + sec  + " " + meridian ; 
+        var y = today +" / " + month + " / " + year ;
+        document.getElementById("time").innerHTML = x ;
+        document.getElementById("date").innerHTML = y ;
+         }
+        setInterval( clock, 1000 ) ;
+           
+        </script>
+    </body>
+</html>
